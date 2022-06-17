@@ -3,6 +3,7 @@ var router = express.Router();
 const moviesCtrl = require('../controllers/movies')
 
 // all of our routes are prefixed with /movies because of how they are mounted in the server
+router.get('/', moviesCtrl.index)
 router.get('/new', moviesCtrl.new)
 router.post('/', moviesCtrl.create)
 
