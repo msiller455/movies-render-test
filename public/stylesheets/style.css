@@ -156,3 +156,13 @@ hr {
   font-size: .8rem;
   text-align: center;
 }
+
+ul {
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+	
+li {
+  font-weight: bold;
+}
