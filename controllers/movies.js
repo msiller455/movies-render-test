@@ -20,7 +20,7 @@ function show(req, res) {
       Performer.find(
         {_id: {$nin: movie.cast}},
         function(err, performers) {
-          console.log(performers)
+          console.log(movie)
           res.render('movies/show', { title: 'Movie Detail', movie, performers });
         }
       )
