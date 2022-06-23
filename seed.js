@@ -37,15 +37,15 @@ const p2 = Performer.deleteMany({})
 Promise.all([p1, p2])
 .then(function(result) {
     console.log(result)
-    return Performer.create(data.performers)
+    return Promise.all([
+        Performer.create(data.performers),
+        Movie.create(data.movies)
+    ])
 })
-.then(function(performers) {
-    console.log(performers)
-    return  Movie.create(data.movies)
+.then(function(result) {
+    console.log(result)  
 })
-.then(function(movies) {
-    console.log(movies)
-})
+.then()
 .then(process.exit)
 
 
