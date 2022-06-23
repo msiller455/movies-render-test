@@ -41,6 +41,10 @@ Promise.all([p1, p2])
 })
 .then(function(performers) {
     console.log(performers)
+    return  Movie.create(data.movies)
+})
+.then(function(movies) {
+    console.log(movies)
 })
 .then(process.exit)
 
