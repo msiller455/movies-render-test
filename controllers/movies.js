@@ -22,7 +22,7 @@ function show(req, res) {
         {_id: {$nin: movie.cast}},
         function(err, performers) {
           console.log(movie)
-          res.render('movies/show', { title: 'Movie Detail', movie, performers });
+          res.render('movies/show', { title: 'Movie Detail', movie, performers});
         }
       )
     });
