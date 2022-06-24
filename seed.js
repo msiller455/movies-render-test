@@ -1,7 +1,7 @@
 // seed.js (a utility to seed/initialize the database)
 
 // Uncomment the next line if using a .env to hold the db connection string
-// require('dotenv').config();
+require('dotenv').config();
 
 // Connect to the db
 require('./config/database')
