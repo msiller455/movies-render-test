@@ -1,7 +1,8 @@
 const Movie = require('../models/movie');
 
 module.exports = {
-  create
+  create,
+  delete: deleteReview
 };
 
 function create(req, res) {
@@ -18,4 +19,16 @@ function create(req, res) {
             res.redirect(`/movies/${movie._id}`)
         })
     })
+}
+
+async function deleteReview(req, res, next) {
+    try {
+        const movie = await Movie.findOne({ 'reviews._id': req.params.id, 'reviews.user': req.user._id })
+        if(!movie) return res.redirect('/movies')
+        movie.reviews.remove(req.params.id)
+        await movie.save()
+        res.redirect(`/movies/${movie._id}`)
+    } catch(err) {
+        return next(err)
+    }
 }
