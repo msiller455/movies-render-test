@@ -9,6 +9,7 @@ module.exports = {
 };
 
 function index(req, res) {
+  console.log(req.user)
   Movie.find({}, function(err, movies) {
     res.render('movies/index', { title: 'All Movies', movies });
   });
@@ -21,7 +22,6 @@ function show(req, res) {
       Performer.find(
         {_id: {$nin: movie.cast}},
         function(err, performers) {
-          console.log(movie)
           res.render('movies/show', { title: 'Movie Detail', movie, performers});
         }
       )
