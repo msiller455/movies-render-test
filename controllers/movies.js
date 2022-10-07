@@ -9,7 +9,6 @@ module.exports = {
 };
 
 function index(req, res) {
-  console.log(req.user)
   Movie.find({}, function(err, movies) {
     res.render('movies/index', { title: 'All Movies', movies });
   });
